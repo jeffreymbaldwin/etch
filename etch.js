@@ -14,13 +14,36 @@ function createGrid16() {
 }
 
 function changeBoxesButton () {
- 
-    prompt("Please write the number you want for square x square. No numbers higher than 100");
+  const userInput = prompt("Please write a number you want for square x square. No numbers larger than 100")
+  if (userInput <= 100 && userInput > 0) {
+    gridSize = userInput;
+  } else {
+    alert("WOW! Really? Enter a valid number between 1 and 100");
+  }
+    
 }
 
+const container = document.querySelector("#container");
+
+function clearContainer (){
+    clearContainer.innerHTML = ""
+}
+
+// function createNewGrid(newSize ){
+//     const gridItems = document.querySelectorAll(".grid-item");
+//     const newWidthHeight = `calc(100% / ${newSize})`;
+//     gridItems.forEach(item => {
+//         item.style.width = newWidthHeight;
+//         item.style.height = newWidthHeight;
+//     });
+  
+// }
 
 createGrid16();
 
+
 document.querySelector("#button").addEventListener("click", () => {
     changeBoxesButton();
+    // clearContainer();
+    // createNewGrid();
 })
