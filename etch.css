@@ -10,8 +10,8 @@
 
 .grid-item {
    display: flex;
-   width: calc(100% / 33);
-   height: calc(100% / 33);
+   width: calc(100% / 64);
+   height: calc(100% / 64);
    border: 1px solid red;
 }
 
