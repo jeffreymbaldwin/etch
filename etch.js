@@ -13,4 +13,14 @@ function createGrid16() {
     }
 }
 
+function changeBoxesButton () {
+ 
+    prompt("Please write the number you want for square x square. No numbers higher than 100");
+}
+
+
 createGrid16();
+
+document.querySelector("#button").addEventListener("click", () => {
+    changeBoxesButton();
+})
