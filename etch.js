@@ -1,16 +1,18 @@
-function createGrid16() {
-    for(let i =0; i<16; i++){
-        for(let j = 0; j <16; j++) {
-           const newDiv = document.createElement("div");
-           newDiv.classList.add("grid-item");
-            document.querySelector("#container").appendChild(newDiv);
-    
-            newDiv.addEventListener("mouseover", ( ) => {
+const container = document.querySelector("#container");
+
+function defaultGrid ( ) {
+    for (let i = 0; i < 16; i++){
+        for (let j = 0; j < 16; j++) {
+            const newDiv = document.createElement("div");
+            newDiv.classList.add("grid-item");
+            container.appendChild(newDiv);
+
+            newDiv.addEventListener("mouseover", () => {
                 newDiv.style.backgroundColor = "blue";
-            })
-        
+            });
         }
     }
+       
 }
 
 function changeBoxesButton () {
@@ -23,27 +25,38 @@ function changeBoxesButton () {
     
 }
 
-const container = document.querySelector("#container");
 
 function clearContainer (){
-    clearContainer.innerHTML = ""
+    container.innerHTML = ""
 }
 
-// function createNewGrid(newSize ){
-//     const gridItems = document.querySelectorAll(".grid-item");
-//     const newWidthHeight = `calc(100% / ${newSize})`;
-//     gridItems.forEach(item => {
-//         item.style.width = newWidthHeight;
-//         item.style.height = newWidthHeight;
-//     });
+function createNewGrid(){
+    for (let i = 0; i < gridSize; i++){
+        for (let j = 0; j < gridSize; j++) {
+            const newDiv = document.createElement("div");
+            newDiv.classList.add("grid-item");
+            container.appendChild(newDiv);
+
+            newDiv.addEventListener("mouseover", () => {
+                newDiv.style.backgroundColor = "blue";
+            });
+        }
+    }
+    
+    const gridItems = document.querySelectorAll(".grid-item");
+    const newWidthHeight = `calc(100% / ${gridSize})`;
+    gridItems.forEach(item => {
+        item.style.width = newWidthHeight;
+        item.style.height = newWidthHeight;
+    });
   
-// }
-
-createGrid16();
-
+}
 
 document.querySelector("#button").addEventListener("click", () => {
     changeBoxesButton();
-    // clearContainer();
-    // createNewGrid();
+    clearContainer();
+    createNewGrid();
 })
+
+defaultGrid();
+
